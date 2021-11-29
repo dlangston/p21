@@ -1,0 +1,187 @@
+// Pinnacle21 Custom Styles
+
+@import "palette";
+@import "icon-list";
+
+@mixin border-style {
+  border: 1px solid $gray-400; 
+  border-radius: .25rem;
+}
+
+.body {
+  padding: 3rem 1.5rem;
+  background: $gray-200;
+  color: $font-dark;
+}
+
+.btn {
+  @include border-style;
+  &.btn-primary {
+    color: inherit;
+    background-image: linear-gradient($white, $gray-200);
+    box-shadow: 0 .0625rem 0 $btn-shadow;
+    height: 2.25rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: center;
+    padding: .5rem;
+    width: max-content;
+    // hover
+    &:hover {
+      @include border-style;
+      background-image: linear-gradient($gray-200, $white);
+    }
+    // active
+    &:not(:disabled):not(.disabled):active, 
+    &:not(:disabled):not(.disabled).active {
+      @include border-style;
+      color: inherit;
+      background-image: linear-gradient($gray-200, $white);
+      padding-top: .5625rem;
+      padding-bottom: .4375rem;
+    }
+    // mouse focus
+    &:focus, &.focus,
+    &:not(:disabled):not(.disabled):active:focus, 
+    &:not(:disabled):not(.disabled).active:focus {
+      @include border-style;
+      background-image: linear-gradient($white, $gray-200);
+      box-shadow: 0 0 .0625rem .0625rem  $primary;
+    }
+    // keyboard focus
+    &:focus-visible {
+      box-shadow: 0 0 .25rem .125rem $primary;
+    }
+  }
+}
+
+.link {
+  color: $link-color;
+  &:hover,
+  &:focus {
+    outline: none;
+    color: lighten($link-color, 10);
+  }
+  &:active {
+    color: darken($link-color, 10);
+  }
+}
+
+.container {
+  @include border-style;
+  background: $container-bg;
+  box-shadow: $container-shadow;
+  align-items: center;
+  width: 100%;
+  border: .0625rem solid $body-color;
+  padding: 2.75rem;
+  max-width: 100%;
+  display: grid;
+  grid-template-areas: "head-area"
+                       "content-area"
+                       "footer-area";
+   
+  .container-heading__area {
+    grid-area: head-area;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+  }
+
+  .container-content__area {
+    grid-area: content-area;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    grid-gap: 1.5rem;
+    margin: 1.5rem;
+    justify-content: center;
+    }
+    
+  .container-footer__area {
+    grid-area: footer-area;
+    text-align: center;
+    .container-footer__hr { 
+      border-top: 1px solid $border;
+      width: 32vw;
+      margin-bottom: .5rem;
+    }
+  }
+    
+}
+
+.card {
+  @include border-style;
+  width: 100%;
+  padding: 1rem;
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+  grid-gap: 1rem;
+  justify-content: space-between;
+
+  .card-header {
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+  
+    .card-header__icon-container {
+      grid-column: 2;
+      height: 3.75rem;
+
+      .icon-container__icon {
+        text-align: center;
+        position: relative;
+        top: calc(50% - .875rem); //14px
+        .fas {
+          font-size: 1.75rem;
+          color: $primary;
+        }
+      }
+
+      .icon-container__img{
+        text-align: center;
+        position: relative;
+        top: -50%;
+        .card-img-top {
+          height: 3.75rem;
+          width: 3.75rem;
+          opacity: .2;
+        }
+      }
+    }
+
+    .card-header__tag {
+      @include border-style;
+      border-color: orange;
+      border-top-left-radius: 0;
+      border-bottom-right-radius: 0;
+      justify-self: end;
+      margin: -1rem -1rem 0 0;
+      padding: .25rem;
+      background: orange;
+      width: max-content;
+      height: max-content;
+      display: table; 
+      grid-column: 3;
+      .tag-text {
+        color: $white;
+        text-align:center; 
+        vertical-align: middle;
+        display: table-cell;  
+      }
+    }
+  }
+
+  .card-content {
+    .card-content__title {
+      text-align: center;
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+

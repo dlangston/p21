@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "palette.css",
+	"sources": [
+		"../../scss/palette.scss"
+	],
+	"sourcesContent": [
+		"// Pinnacle21 Palette\n$primary: #2CB0BC;\n$link-color: #1696A3;\n$orange: #F58220;\n$gray-100: #F8F9FA;\n$gray-200: #EEEEEE;\n$gray-400: #BDBDBD;\n$gray-800: #333333;\n$white: #FFFFFF;\n$body-bg: $gray-200;\n\n$font-dark: $gray-800;\n\n$border: $gray-400;\n\n$btn-shadow: #00000066;\n\n$container-bg: $gray-100;\n$container-shadow: 0 1px 3px 0 #0000001A;\n\n"
+	],
+	"names": [],
+	"mappings": ""
+}
